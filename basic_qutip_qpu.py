@@ -456,7 +456,7 @@ class QutipQPU(QPUHandler):
             sample_2Dlist_for_last_or_all_times = [] # lists with Samples will be added to this list
 
 
-            n_samples = self._n_samples if self._sim_method == "stochastic" else 1
+            n_samples = 1
 
             # Firstly, simulate every trajectory and record it
             qt_result_list = []
@@ -518,7 +518,7 @@ class QutipQPU(QPUHandler):
                 sample_2Dlist_for_last_or_all_times.append([])
                 # For every state - create a Sample
                 for idx in range(n_amps):
-                    if abs(amplitudes_determ[idx]) > 0 and self._sim_method != "stochastic":
+                    if abs(amplitudes_determ[idx]) > 0:
                         amplitude = amplitudes_determ[idx]
                     else:
                         amplitude = None
